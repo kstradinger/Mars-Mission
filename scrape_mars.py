@@ -95,6 +95,8 @@ def scrape():
     fact_df = pd.DataFrame(facts, columns=["Description", "Value","C"])
     fact_df.drop(["C"], axis=1)
 
+    mars_info['facts'] = fact_df
+
     time.sleep(2)
     #Hemispheres----------------------------------------------------------
     hemi_url='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -115,6 +117,8 @@ def scrape():
         
     hemisphere_names
 
+    mars_info['hemispheres'] = hemisphere_names
+
     # Getting the image urls(This is broken, I spent 4 hours on it and I just can't quite get it)
     # img_urls = []
 
@@ -128,7 +132,7 @@ def scrape():
     #     pprint(hemi_dict)
     #     browser.click_by_test('Back')
 
-    
+    # mars_info['images'] = img_urls
 
     browser.quit()
 
